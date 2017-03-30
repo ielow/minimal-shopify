@@ -34,7 +34,8 @@
   <!-- CSS ================================================== -->
   {{ 'timber.scss.css' | asset_url | stylesheet_tag }}
   {{ 'theme.scss.css' | asset_url | stylesheet_tag }}
-  {{ 'lustria/stylesheet.css' | asset_url | stylesheet_tag }}
+  {{ 'custom.scss.css' | asset_url | stylesheet_tag }}
+  {{ 'fonts.scss.css' | asset_url | stylesheet_tag }}
 
   {% include 'google-fonts' %}
 
@@ -95,5 +96,8 @@
 
 {% section 'footer' %}
 {{ 'theme.js' | asset_url | script_tag }}
+<script>
+  console.log($)
+</script>
 </body>
 </html>
