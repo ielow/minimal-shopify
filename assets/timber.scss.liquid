@@ -215,7 +215,7 @@ $max: max-width;
 {% endif %}
 
 $gutter: 30px;
-$gridGutter: 30px;
+$gridGutter: 5px;
 $gridGutterMobile: 22px;
 $radius: 2px;
 
@@ -2138,11 +2138,11 @@ $socialIconFontStack: 'icons';
 
 /*================ Module | Site Header ================*/
 .site-header {
-  padding: 40px 0;
+  padding: 0 0 $gutter 0;
   background-color: $colorHeader;
 
   @include at-query ($min, $large) {
-    padding: $gutter 0;
+    padding: $gridGutter 0;
 
     .post-large--display-table {
       min-height: 86px;
