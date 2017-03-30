@@ -1,4 +1,4 @@
-{% paginate collection.products by 20 %}
+{% paginate collection.products by 50 %}
 
 <div id="CollectionSection" data-section-id="{{ section.id }}" data-section-type="collection-template" data-sort-enabled="{{ section.settings.sort_enable }}" data-tags-enabled="{{ section.settings.tags_enable }}">
   <div class="section-header section-header--breadcrumb">
@@ -27,7 +27,7 @@
   {% endif %}
 
   <div class="grid-uniform grid-link__container">
-    {% assign grid_item_width = 'wide--one-fifth large--one-quarter medium-down--one-half' %}
+    {% assign grid_item_width = 'wide--one-third large--one-half medium-down--one-one' %}
 
     {% for product in collection.products %}
       {% assign featured = product %}
@@ -49,10 +49,12 @@
                         {{ 'product-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
                       </span>
                     </span>
-                    <p class="grid-link__title">{{ 'home_page.onboarding.product_title' | t }}</p>
-                    <p class="grid-link__meta">
-                      <strong>$19.99</strong>
-                    </p>
+                    <span class="text-center"> 
+                      <p class="grid-link__title">{{ 'home_page.onboarding.product_title' | t }}</p>
+                      <p class="grid-link__meta">
+                        <strong>$19.99</strong>
+                      </p>
+                    </span>
                   </a>
                 </div>
               {% endfor %}

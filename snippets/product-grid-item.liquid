@@ -36,7 +36,7 @@
       {% endif %}
       <span class="grid-link__image-centered">
         {% if featured.title != '' %}
-          <img src="{{ featured.featured_image.src | img_url: 'large' }}" alt="{{ featured.featured_image.alt | escape }}">
+          <img src="{{ featured.featured_image.src | img_url: '720x' }}" alt="{{ featured.featured_image.alt | escape }}">
         {% else %}
           {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
           {{ 'product-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
