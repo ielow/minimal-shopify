@@ -230,6 +230,11 @@
             "group": "Serif"
           },
           {
+            "value": "'lustria', serif",
+            "label": "Lustria",
+            "group": "Serif"
+          },
+          {
             "value": "'Calisto MT', 'Bookman Old Style', Bookman, 'Goudy Old Style', Garamond, 'Hoefler Text', 'Bitstream Charter', Georgia, serif",
             "label": "Calisto MT",
             "group": "Serif"
@@ -474,6 +479,11 @@
           {
             "value": "'Big Caslon', 'Book Antiqua', 'Palatino Linotype', Georgia, serif",
             "label": "Big Caslon",
+            "group": "Serif"
+          },
+          {
+            "value": "'lustria', serif",
+            "label": "Lustria",
             "group": "Serif"
           },
           {
@@ -807,6 +817,11 @@
           {
             "value": "Baskerville, 'Baskerville Old Face', 'Hoefler Text', Garamond, 'Times New Roman', serif",
             "label": "Baskerville",
+            "group": "Serif"
+          },
+          {
+            "value": "'lustria', serif",
+            "label": "Lustria",
             "group": "Serif"
           },
           {

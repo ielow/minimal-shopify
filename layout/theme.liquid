@@ -34,6 +34,7 @@
   <!-- CSS ================================================== -->
   {{ 'timber.scss.css' | asset_url | stylesheet_tag }}
   {{ 'theme.scss.css' | asset_url | stylesheet_tag }}
+  {{ 'lustria/stylesheet.css' | asset_url | stylesheet_tag }}
 
   {% include 'google-fonts' %}
 
@@ -82,7 +83,6 @@
 </head>
 
 <body id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}" >
-
   {% section 'header' %}
 
   <main class="wrapper main-content" role="main">
@@ -93,9 +93,7 @@
     </div>
   </main>
 
-  {% section 'footer' %}
-
-  {{ 'theme.js' | asset_url | script_tag }}
-
+{% section 'footer' %}
+{{ 'theme.js' | asset_url | script_tag }}
 </body>
 </html>
