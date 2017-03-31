@@ -1,11 +1,79 @@
+$colorPrimary: {{ settings.color_primary }};
+
 h1,h2,h3,h4,h5,h6{
-  opacity:0.25;
-  font-weight:normal;
+	opacity:0.25;
+	font-weight:normal;
 }
 h1.site-header__logo{
-  opacity:1;
+	opacity:1;
 }
 .mine-product-description{
-  box-sizing: border-box;
-  padding: 0 2em;
+	box-sizing: border-box;
+	padding: 0 2em;
+}
+.site-nav > a:hover{
+	text-transform: underline;
+}
+
+.mine-tab-title{
+	box-sizing: border-box;
+	display: inline-block;
+	padding: 1em;
+	border-bottom: solid 1px $colorPrimary;
+	color: $colorPrimary;
+	h4{
+		margin: 0;
+	}
+}
+
+//TABS Styles
+.mine-tabs-container{
+	position: relative;
+	.mine-tab-nav{
+		list-style: none;
+		padding: 0; 
+		margin: 0;
+		li{
+			box-sizing: border-box;
+			display: inline-block;
+			padding: 1em;
+			@media (max-width: 480px){
+				padding: 5px;
+				}
+			a{
+				display: block;
+				color: $colorPrimary;
+				font-size: 1em;
+				@media (max-width: 480px){
+					font-size: 0.5em;
+				}
+				opacity: 0.25;
+				width: 100%;
+				&:hover{
+					transition: all 1s;
+					opacity: 0.8;
+				}	
+				&.active{
+					transition: all;
+					border-bottom: solid 1px $colorPrimary;
+					color: $colorPrimary;
+					opacity: 1;
+				}
+			}	
+		}
+
+	}
+	.tab-item{
+		display: none;
+		visibility: hidden;
+		opacity: 0;
+		&.active{
+			transition: all 2s;
+			display: block;
+			visibility: visible;
+			opacity:1;
+			padding: 2em;
+			background: rgba(#f1f1f1, 0.3);
+		}
+	}
 }

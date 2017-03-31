@@ -1,0 +1,45 @@
+
+(function($){
+  $.fn.ielowtabs=function(){
+      //$('h4',this).wrap('<div class="mine-tab-title"></div>');
+      var init,end,tabs;
+      init=$('p:contains("#start-tabs")').html('aqui empieza');
+      end=$('p:contains("#end-tabs")').html('aqui termina');
+      tabs= $('h4').addClass('mine-tab-title');
+
+      setup=function(){
+        $(init).nextUntil(end).andSelf().wrapAll('<div class="mine-tabs-container"></div>');
+        $(init).remove();
+        $(end).remove();
+        $('.mine-tab-title').each(function(index){
+            $(this).nextUntil('.mine-tab-title').andSelf().wrapAll('<div class="tab-item" id="tab-'+(index+1)+'"></div>');
+        })
+        $('.tab-item').first().addClass('active');
+        createNav()
+      }
+      createNav=function(){
+        $('.mine-tabs-container').prepend('<ul class="mine-tab-nav"></ul>');
+        $('.mine-tab-title').each(function(index, el) {
+          $('.mine-tab-nav').append('<li><a href="#tab-'+(index+1)+'">'+$(el).html()+'</a></li>');
+          $(this).remove();
+        });
+          $('.mine-tab-nav li:first a').addClass('active');
+          $('.mine-tab-nav a').click(switchTab)
+      }
+      function switchTab(event){
+        event.preventDefault();
+        var tab= $(event.target).attr('href')
+        $('.mine-tab-nav .active').removeClass('active');
+        $(event.target).addClass('active');
+
+        $('.tab-item active').hide();
+        $('.tab-item').removeClass('active');
+        $(tab).addClass('active');
+        $('.tab-item active').show();
+      }
+      setup()
+  }
+  $(document).ready(function(){
+    $('.product-description').ielowtabs();
+  });
+})(jQuery)

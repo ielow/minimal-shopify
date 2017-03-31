@@ -95,9 +95,7 @@
   </main>
 
 {% section 'footer' %}
+{{ 'tabs.js' | asset_url | script_tag }}
 {{ 'theme.js' | asset_url | script_tag }}
-<script>
-  console.log($)
-</script>
 </body>
 </html>
