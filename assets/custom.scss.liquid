@@ -1,4 +1,8 @@
 $colorPrimary: {{ settings.color_primary }};
+ 
+ *:focus{
+ 	outline: none;
+ }
 
 h1,h2,h3,h4,h5,h6{
 	opacity:0.25;
@@ -10,11 +14,18 @@ h1.site-header__logo{
 .mine-product-description{
 	box-sizing: border-box;
 	padding: 0 2em;
+	h1{
+		font-size: 3em;
+	}
+	.h3{
+		font-weight: normal;
+		opacity: 0.5;
+		color: $colorPrimary;
+	}
 }
 .site-nav > a:hover{
 	text-transform: underline;
 }
-
 .mine-tab-title{
 	box-sizing: border-box;
 	display: inline-block;
@@ -34,6 +45,26 @@ h1.site-header__logo{
 	min-height: 1em;
 	overflow: hidden;
 	clear: both;
+}
+.cart-count{
+    background: rgba($colorPrimary,0.5);
+    color: white;
+    box-sizing: border-box;
+    font-size: 10px;
+    width: 18px;
+    line-height: 18px;
+    text-align: center;
+    border-radius: 50%;
+    display: inline-block;
+}
+.breadcrumb{
+	display: none;
+}
+.product-single__price{
+	font-weight: normal;
+	font-size: 2em; 
+	opacity:0.3;
+	color: $colorPrimary;
 }
 //TABS Styles
 .mine-tabs-container{

@@ -93,9 +93,9 @@
             </a>
           </div>
 
-          <div class="header-bar__module">
+          <div class="header-bar__module mine-cart-counter">
             <a href="/cart" class="cart-page-link">
-              {{ 'layout.cart.title' | t }}{% unless cart.item_count == 0 %}:{% endunless %}
+              {% unless cart.item_count == 0 %}{% endunless %}
               <span class="cart-count header-bar__cart-count{% if cart.item_count == 0 %} hidden-count{% endif %}">{{ cart.item_count }}</span>
             </a>
           </div>
