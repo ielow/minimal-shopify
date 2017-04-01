@@ -1,14 +1,14 @@
-(function($){
-    $(document).ready(function(){
 
-    	// $('form[action="/cart/add"]').submit(function(event){
-    	// 	event.preventDefault();
-    	// })
-    	// $('#AddToCart').click(function(event){
-    	// 	var compra= $('form[action="/cart/add"]').serialize();
-    	// 	$.post('/cart/add.js', compra,function(res){
-    	// 		console.log(res)
-    	// 	});
-    	// })
-    })
-})(jQuery)
+$(document).ready(function(){
+    	 $('form[action="/cart/add"]').submit(function(event){
+    	 	event.preventDefault();
+			 $.ajax('/cart/add.js',{
+				 data:$(this).serialize(),
+				 method:'POST',
+				 header:{"Content-Type": "application/json"},
+				 success:function(data){
+					 alert(data);
+			 	}
+			 })
+    	 })
+})
