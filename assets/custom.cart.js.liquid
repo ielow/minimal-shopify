@@ -5,10 +5,20 @@ $(document).ready(function(){
 			 $.ajax('/cart/add.js',{
 				 data:$(this).serialize(),
 				 method:'POST',
-				 header:{"Content-Type": "application/json"},
+				 dataType:'json',
 				 success:function(data){
-					 alert(data);
-			 	}
+					 var current = Number($('.cart-count').html());
+					 $('.cart-count').html(current+1)
+					 $('.hidden-count').removeClass('hidden-count');
+					 $('.row').append('<a class="btn" href="/cart">Cart</a>')
+					 console.log(data);
+			 	},
+				 error:function(XMLHttpRequest, textStatus){
+					 //console.log(XMLHttpRequest, textStatus)
+				 },
+				 complete:function(jqxhr, text){
+					 //console.log(jqxhr, text)
+				 },
 			 })
     	 })
 })
