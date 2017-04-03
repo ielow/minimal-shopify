@@ -1,4 +1,44 @@
 
+(function($){
+function addToCart(){
+	var button,currentPos,targetPos;
+	button=$('#AddToCart');
+	targetpos={
+		x:0,
+		y:$(window).width()
+	};
+	currentPos= button.offset();
+	$('body').prepend('<div class="cart-anim"></div>');
+	$('.cart-anim').css({
+		position:'absolute',
+		left: currentPos.left,
+		top: currentPos.top,
+		width:button.outerWidth(),
+		height:button.outerHeight(),
+		zIndex:1000,
+		background: '{{settings.color_primary}}'
+	});
+	$('.cart-anim').animate({
+		opacity:0,
+		width:button.width()/2,
+		left:$(window).width(),
+		top:0
+	},'fast','linear');
+	if(!$('.mne-extra').length){
+		$('.row').append('<a class="btn mne-extra" href="/cart">View Cart</a>');
+		$('.row').append('<a class="btn mne-extra" href="/checkout">Checkout</a>');
+	}
+}
+function updateNumber(){
+	var current = Number($('.cart-count').html());
+	$('.cart-count').html(current+1);
+	$('.hidden-count').removeClass('hidden-count');
+}
+function resetText(){
+	$('#AddToCartText').html('Add one more...');
+	$('#AddToCart').css({background:'{{settings.color_primary}}',color:'white'});
+	$('#AddToCart').removeAttr('disabled')
+}
 $(document).ready(function(){
     	 $('form[action="/cart/add"]').submit(function(event){
     	 	event.preventDefault();
@@ -6,12 +46,16 @@ $(document).ready(function(){
 				 data:$(this).serialize(),
 				 method:'POST',
 				 dataType:'json',
+				 beforeSend:function(){
+					$('#AddToCart').attr('disabled','disabled')
+					$('#AddToCartText').html('Adding to Cart <img width="15" height="15" src="{{"loading.svg" | asset_url}}" />');
+					$('#AddToCart').css({background:'rgba(250,250,250,0.9)', color:'{{settings.color_primary}}'});
+				 },
 				 success:function(data){
-					 var current = Number($('.cart-count').html());
-					 $('.cart-count').html(current+1)
-					 $('.hidden-count').removeClass('hidden-count');
-					 $('.row').append('<a class="btn" href="/cart">Cart</a>')
 					 console.log(data);
+					 addToCart();
+					 updateNumber();
+					 setTimeout(resetText,3000)
 			 	},
 				 error:function(XMLHttpRequest, textStatus){
 					 //console.log(XMLHttpRequest, textStatus)
@@ -21,4 +65,5 @@ $(document).ready(function(){
 				 },
 			 })
     	 })
-})
+	})
+})(jQuery)
