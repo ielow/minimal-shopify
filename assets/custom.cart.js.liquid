@@ -4,7 +4,7 @@ function addToCart(){
 	var button,currentPos,targetPos;
 	button=$('#AddToCart');
 	targetpos={
-		x:0,
+		x:$('.mine-cart-counter').offset().left,
 		y:$(window).width()
 	};
 	currentPos= button.offset();
@@ -24,9 +24,9 @@ function addToCart(){
 		left:$(window).width(),
 		top:0
 	},'fast','linear');
-	if(!$('.mne-extra').length){
-		$('.row').append('<a class="btn mne-extra" href="/cart">View Cart</a>');
-		$('.row').append('<a class="btn mne-extra" href="/checkout">Checkout</a>');
+	if(!$('.mne-extra-btn').length){
+		$('.row').append('<a class="btn--secondary mne-extra-btn" href="/cart">View Cart</a>');
+		$('.row').append('<a class="btn--secondary mne-extra-btn" href="/checkout">Checkout</a>');
 	}
 }
 function updateNumber(){
