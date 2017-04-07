@@ -3,7 +3,7 @@
   This is your /cart template.
 
 {% endcomment %}
-<div id="CartSection" data-section-id="{{ section.id }}" data-section-type="cart-template" data-notes-enable="{{ section.settings.cart_notes_enable }}">
+<div id="CartSection" class="mine_cart_container" data-section-id="{{ section.id }}" data-section-type="cart-template" data-notes-enable="{{ section.settings.cart_notes_enable }}">
   {% if cart.item_count > 0 %}
 
     <form action="/cart" method="post" novalidate class="cart">
@@ -12,7 +12,7 @@
         <h1 class="section-header__title">{{ 'cart.general.title' | t }}</h1>
       </div>
 
-      <div class="cart__row medium-down--hide cart__header-labels">
+      <div class="cart__row medium-down--hide cart__header-labels mne-p2">
         <div class="grid--full">
           <div class="grid__item post-large--one-half push--post-large--one-half">
             <div class="grid--full">
@@ -34,7 +34,7 @@
         Loop through products in the cart
       {% endcomment %}
       {% for item in cart.items %}
-        <div class="cart__row">
+        <div class="cart__row mne_cart_item">
           <div class="grid--full cart__row--table-large">
 
             <div class="grid__item post-large--one-half">
@@ -51,7 +51,7 @@
                   </a>
                 </div>
 
-                <div class="grid__item two-thirds">
+                <div class="grid__item two-thirds mne-p2">
                   <a href="{{ item.url }}" class="h5">
                     {{ item.product.title }}
                   </a>
@@ -88,7 +88,7 @@
                   {% endif %}
 
                   <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="cart__remove">
-                    <small>{{ 'cart.general.remove' | t }}</small>
+                    <small>{{ 'cart.general.remove' | t }}<span class="icon icon-x"></span></small>
                   </a>
                 </div>
 

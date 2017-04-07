@@ -1,4 +1,5 @@
 $colorPrimary: {{ settings.color_primary }};
+$colorSecondary: {{ settings.color_secondary }};
  
  *:focus{
  	outline: none;
@@ -78,6 +79,43 @@ h1.site-header__logo{
 .shopify-section{
 	font-size: 80%;
 }
+.mine_cart_container{
+	width: 70%;
+	margin: 0 auto;
+	@media (max-width: 480px){
+		width: 85%;
+	}
+	.h4{
+		font-size: 1.3em;
+		font-weight: normal;
+		color: rgba($colorPrimary,0.3);
+	}
+	.h5{
+		font-size: 1.5em;
+		font-weight: normal;
+		color: rgba($colorPrimary,0.55);
+		
+	}
+	.mne_cart_item{
+		padding: 2em;
+		margin-top: 0;
+		background: rgba($colorSecondary,0.1);
+	}
+}
+.mobile-cart-page-link{
+	.cart-count:after,
+	.cart-count:before
+	{
+		content:'';
+	}
+}
+.mobile-nav__link>a {
+	font-family: 'Lato', sans-serif;
+}
+.mne-p2{
+	padding: 0 3em
+}
+
 //TABS Styles
 .mine-tabs-container{
 	position: relative;

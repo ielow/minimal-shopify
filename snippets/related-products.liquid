@@ -1,4 +1,4 @@
-{% assign number_of_products = 4 %}
+{% assign number_of_products = 3 %}
 {% assign number_of_products_to_fetch = number_of_products | plus: 1 %}
 
 {% if collection == null or collection.handle == 'frontpage' or collection.handle == 'all' %}
@@ -24,7 +24,7 @@
         {% assign current_product_found = true %}
       {% else %}
         {% unless current_product_found == false and forloop.last %}
-          {% assign grid_item_width = 'post-large--one-quarter medium--one-quarter small--one-half' %}
+          {% assign grid_item_width = 'post-large--one-third medium--one-third small--one-one' %}
           {% assign featured = product %}
           <div class="grid__item {{grid_item_width}}">
             {% include 'product-grid-item' %}

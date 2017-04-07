@@ -115,7 +115,9 @@
       {% unless section.settings.nav_menu == blank and section.settings.header_search_enable == false and shop.customer_accounts_enabled == false %}
         <button type="button" class="mobile-nav-trigger" id="MobileNavTrigger" data-menu-state="close">
           <span class="icon icon-hamburger" aria-hidden="true"></span>
-          {{ 'layout.navigation.menu' | t }}
+          {%comment%}
+            {{ 'layout.navigation.menu' | t }}
+          {%endcomment%}
         </button>
       {% endunless %}
       <a href="/cart" class="cart-page-link mobile-cart-page-link">
@@ -173,14 +175,9 @@
           {% else %}
             <div class="h1 site-header__logo post-large--left" itemscope itemtype="http://schema.org/Organization">
           {% endif %}
-            {% if section.settings.logo != blank %}
-              {% capture image_size %}{{ section.settings.logo_max_width }}x{% endcapture %}
               <a href="/" itemprop="url">
-                <img src="{{ section.settings.logo | img_url: image_size }}" alt="{{ shop.name }}" itemprop="logo">
+                  <img src="{{ 'mine-logo.svg' | asset_url }}" alt="{{ shop.name }}" itemprop="logo">
               </a>
-            {% else %}
-              <a href="/" itemprop="url">{{ shop.name }}</a>
-            {% endif %}
           {% if template.name == 'index' %}
             </h1>
           {% else %}
